@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Image from 'next/image'
 import title from '../assests/a1.png'
 import { ConnectButton, Logo } from 'web3uikit'
@@ -7,16 +7,27 @@ import { FaBox } from 'react-icons/fa'
 import { BsFillBookmarkFill } from 'react-icons/bs'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { AiOutlineHistory } from 'react-icons/ai'
-import companytitle from '../assests/az3.gif'
-
-
+import companytitle from '../assests/az1.gif'
+// import { AmazonContext }  from '../context/AmazonContext'
+ 
 const isAuthenticated = true
-const username=''
+const  nickname = ''
+const username = 'Sam'
+
+// const {
+//   isAuthenticated,
+//   buyTokens,
+//   getBalance,
+//   nickname,
+//   setNickname,
+//   username,
+//   handleSetUsername,
+// } = useContext(AmazonContext)
 
 export const Sidebar = () => {
   const styles = {
       container: `h-full w-[300px] flex flex-col bg-[#fff] static`,
-      profile: ` w-full  py-16 flex flex-col justify-center items-center rounded-r-3xl bg-gradient-to-t from-[#0d141c] to-[#42667e] mt-[40px] mb-[50px] border-2 border-[#fb9701]`,
+      profile: `w-full  py-16 flex flex-col justify-center items-center rounded-r-3xl bg-gradient-to-t from-[#0d141c] to-[#42667e] mt-[40px] mb-[50px] border-2 border-[#fb9701]`,
       profilePicContainer: `flex  rounded-xl items-center justify-center w-full h-full mb-5`,
       profilePic: `rounded-3xl object-cover`,
       welcome: ` text-md mb-2 font-bold text-2xl text-white`,
@@ -49,20 +60,20 @@ export const Sidebar = () => {
                     type='text'
                     placeholder='Username....'
                     className={styles.usernameInput}
-                    // value={nickname}
-                    // onChange={e => setNickname(e.target.value)}
+                    value={nickname}
+                    onChange={e => setNickname(e.target.value)}
                   />
                 </div>
                 <button
                   className={styles.setNickname}
-                  // onClick={handleSetUsername}
+                  onClick={handleSetUsername}
                 >
                   Set Nickname
                 </button>
               </>
             ) : (
               <div>
-                <div className={styles.welcome}>Wecome {username}</div>
+                <div className={styles.welcome}>Welcome {username}</div>
               </div>
             )}
           </>
@@ -108,8 +119,8 @@ export const Sidebar = () => {
         <Image 
         src={companytitle}
         alt='amzon3.0'
-        height={170}
-        width={280}
+        height={100}
+        width={200}
         />
     </div>
 
